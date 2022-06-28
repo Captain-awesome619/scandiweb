@@ -18,13 +18,23 @@ constructor(props){
       display: false
     }
   }
+  this.state ={
+    filter : {},
+    value : {}
+  }
 }
+
+
+
  toggleDisplay(){
 this.setState({display: !this.state.display })
  }
 
-    render(){
 
+
+
+    render(){
+console.log(this.filter)
         return <div className="container1">
 <nav className="nav">
         <div className= 'links'>
@@ -59,13 +69,12 @@ this.setState({display: !this.state.display })
 
       </nav>
       <div className="lnav" >
-<div className="conversion">
-<BsCurrencyDollar/>
-<IoIosArrowDown className="arrow1"/>
+
+
 </div>
       <ImCart className="icon1" />
       </div>
-        </div>
+      
 
     }
 }

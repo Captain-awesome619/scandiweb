@@ -1,7 +1,15 @@
-.cont{
-
+.products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
 }
+
+.name{
+    position: relative;
+    margin-right: 3rem;
+    top: 0%;
+}
+
 
 
 .all{
@@ -9,28 +17,16 @@
     padding: 0rem;
     place-items: center;
     margin: 0rem;
-    background-color: grey;
-width: 40%;
 }
 
 
-.name{
-    cursor: pointer;
-margin-bottom: 0rem;
-padding-bottom: 0rem;
-font-size: 20px;
-font-family: 'Courier New', Courier, monospace;
-}
 
 .item{
     cursor: pointer;
      display: flex;
-padding-top: 1rem;
-padding-bottom: 1rem;
+     margin-right: 3rem;
+     padding-bottom: 2rem;
     max-width: 200px;
-border: 2px solid black;
-}
-.items>li{
-
+    max-height: 200px;
 
 }
