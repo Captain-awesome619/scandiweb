@@ -18,10 +18,7 @@ constructor(props){
       display: false
     }
   }
-  this.state ={
-    filter : {},
-    value : {}
-  }
+  
 }
 
 
@@ -34,7 +31,7 @@ this.setState({display: !this.state.display })
 
 
     render(){
-console.log(this.filter)
+
         return <div className="container1">
 <nav className="nav">
         <div className= 'links'>
@@ -74,7 +71,7 @@ console.log(this.filter)
 </div>
       <ImCart className="icon1" />
       </div>
-      
+
 
     }
 }
