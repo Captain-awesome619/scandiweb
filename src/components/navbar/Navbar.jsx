@@ -18,7 +18,7 @@ constructor(props){
       display: false
     }
   }
-  
+
 }
 
 
@@ -38,37 +38,19 @@ this.setState({display: !this.state.display })
           <ul className={`link ${this.state.display=== true ? "active" : ""}`} >
             <li >
               <a className="list" href="">ALL</a>
-
             </li>
             <li >
               <a className="list" href="">CLOTHS</a>
-
             </li>
-
             <li >
               <a className="list" href="">TECH</a>
-
             </li>
-
-
           </ul>
           <div className="toggler">
-
-
             <GiHamburgerMenu onClick={this.toggleDisplay} />
-
-
-
           </div>
-
-
         </div>
-
       </nav>
-      <div className="lnav" >
-
-
-</div>
       <ImCart className="icon1" />
       </div>
 

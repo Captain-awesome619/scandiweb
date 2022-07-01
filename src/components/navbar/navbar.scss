@@ -56,14 +56,15 @@ transition: 0.5s ease-out;
 width: 3rem;
 }
 .icon1{
-    margin-right: 5rem;
+    margin-right: 12rem;
     transform: scale(1.2);
     transition:  0.5s ease-out;
     cursor: pointer;
+    margin-top: 0.7rem;
 }
 .icon1:hover{
     transform: scale(1.5);
-    color: green;
+    color:green;
 }
 
 
