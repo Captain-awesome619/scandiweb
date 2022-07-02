@@ -6,7 +6,7 @@
 
 
 .link{
-    margin-left: 3rem;
+    margin-left: 0rem;
     display: flex;
     align-items: center;
     display: flex;
@@ -18,7 +18,7 @@ list-style: none;
 .toggler{
     cursor: pointer;
     display: flex;
-justify-content:flex-start;
+justify-content:space-between;
 position: absolute;
 margin-top: 0rem;
 top: 3.5%;
@@ -55,17 +55,29 @@ transition: 0.5s ease-out;
 
 width: 3rem;
 }
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    }
+
 .icon1{
-    margin-right: 12rem;
-    transform: scale(1.2);
+    position: absolute;
+    transform: scale(1.5);
     transition:  0.5s ease-out;
     cursor: pointer;
     margin-top: 0.7rem;
+    right: 15%;
 }
 .icon1:hover{
-    transform: scale(1.5);
+    transform: scale(1.7);
     color:green;
 }
+
+
+
+
+
 
 
 
@@ -76,14 +88,18 @@ width: 3rem;
 }
 .lnav{
 margin-top: 1rem;
+
 }
 .link{
+    z-index: 1;
+    background-color: darkgray;
     position: fixed;
     top: 6vh;
     left: 0;
     width: 30%;
     height: 93vh;
 margin-left: 0rem;
+padding-top: 1rem;
 flex-direction: column;
 gap: 5rem;
 transform: translatex(-100%);
@@ -95,5 +111,9 @@ transition: 0.5s ease-out;
 
 .active{
     transform: translatex(0%);
+}
+.icon1{
+    margin-top: 0rem;
+    padding-bottom: 1rem;
 }
 }

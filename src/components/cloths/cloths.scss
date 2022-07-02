@@ -1,0 +1,19 @@
+.products2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+ .item2{
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+     padding-bottom: 1rem;
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    padding-top: 2rem;
+ }
+ .clothes{
+    margin-bottom: 3rem;
+    margin-left: 17rem;
+ }

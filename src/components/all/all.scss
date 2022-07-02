@@ -3,11 +3,7 @@
     grid-template-columns: repeat(3,1fr);
 
 }
-.converter{
-    position: absolute;
-    top: 4.3%;
-    left: 80%;
-}
+
 .name{
     position: relative;
     margin-right: 5rem;
@@ -34,12 +30,13 @@
     padding-top: 1rem;
 }
 .items{
+    cursor: pointer;
     background-color: gainsboro;
     display: grid;
     justify-content: center;
    align-items: center;
-max-height: 345px;
-min-height: 345px;
+max-height: 400px;
+min-height: 400px;
 max-width: 200px;
 transition:  0.5s ease-out;
 }
@@ -76,3 +73,31 @@ top: 0%;
 padding: 0.5rem;
 }
 
+.head{
+    display: flex;
+    justify-content: space-around;
+}
+
+.converter{
+    position: relative;
+    top: 20%;
+}
+.converter > option{
+font-family: 'Courier New', Courier, monospace;
+}
+
+.stock{
+    font-size: 20px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    padding-left: 2rem;
+    top: 0%;
+}
+.All{
+margin-left: 13rem;
+}
+.brand{
+    padding-bottom: 0.2rem;
+    font-style: oblique;
+}
