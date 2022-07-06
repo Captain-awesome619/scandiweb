@@ -62,12 +62,12 @@ width: 3rem;
     }
 
 .icon1{
-    position: absolute;
+    position: relative;
     transform: scale(1.5);
     transition:  0.5s ease-out;
     cursor: pointer;
     margin-top: 0.7rem;
-    right: 15%;
+    left: 200%;
 }
 .icon1:hover{
     transform: scale(1.7);
@@ -113,7 +113,14 @@ transition: 0.5s ease-out;
     transform: translatex(0%);
 }
 .icon1{
-    margin-top: 0rem;
+    transform: scale(1.2);
+    margin-top: 1.2rem;
     padding-bottom: 1rem;
+   margin-left: 4rem;
 }
+.icon1:hover{
+    transform: scale(1.4);
+    color:green;
+}
+
 }

@@ -1,0 +1,20 @@
+.products3{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.tech{
+    margin-bottom: 3rem;
+    margin-left: 13rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+    .products3{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .tech{
+        margin-bottom: 3rem;
+        margin-left: 9rem;
+    }
+
+}

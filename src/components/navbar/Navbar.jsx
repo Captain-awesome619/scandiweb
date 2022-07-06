@@ -25,10 +25,10 @@ this.setState({display: !this.state.display })
               <a className="list" href="/">ALL</a>
             </li>
             <li >
-              <a className="list" href="cloths">CLOTHS</a>
+              <a className="list" href="clothes">CLOTHS</a>
             </li>
             <li >
-              <a className="list" href="">TECH</a>
+              <a className="list" href="tech">TECH</a>
             </li>
           </ul>
 

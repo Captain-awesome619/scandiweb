@@ -4,11 +4,14 @@ import { gql } from "apollo-boost";
 import {Query} from "react-apollo";
 import '../cloths/cloths.scss'
 import {AiOutlineShoppingCart} from "react-icons/ai"
+import { Link } from "react-router-dom";
+import ProductDetails from "../productdetails/ProductDetails";
 
 const POSTS_QUERIES = gql`
 query{
     category(input: {title:"clothes"} ){
      products{
+      id
        name
        inStock
        gallery
@@ -72,9 +75,12 @@ return(
   <div className="stock">
  {(product.inStock === false ) ?  'out of stock!' : '' }
 </div>
+
+<Link key={product.id} to={`${product.id}`}>
 <div className="border">
-  < AiOutlineShoppingCart className="icon"/>
+<AiOutlineShoppingCart key={product.id} className="icon" />
 </div>
+</Link>
 <div className="tag">
 <div className="name"> {product.name}
 </div>

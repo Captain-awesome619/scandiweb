@@ -17,3 +17,18 @@
     margin-bottom: 3rem;
     margin-left: 17rem;
  }
+
+
+
+
+ @media screen and (min-width: 320px) and (max-width: 768px){
+   .products2{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+  }
+  .clothes{
+   margin-bottom: 2rem;
+   margin-left: 6rem;
+}
+
+ }

@@ -31,12 +31,6 @@ const PROD_QUERY = gql`
       }
     }
     `;
-
-
-
-
-
-
 class ProductDetails extends Component{
 state = {
   id: null
@@ -100,11 +94,14 @@ return(
 <h4 className="feature">
   {attribute.name}
 </h4>
-<div className={`${attribute.type==="text" ? "values" : "color"}`}>
+<div className={`values ${attribute.type === "swatch" ? "col" : " "}`}>
   {Object.values(attribute.items).map((item)=>(
-    <div className="value">{item.displayValue}</div>
-  ))}
-</div>
+    <div className="value2">
+      {item.displayValue}
+      </div>
+  ) )
+  }
+  </div>
                      </div>
                 ))}
                 <div>
@@ -112,7 +109,7 @@ return(
                     <div className="prices">
                       <div className="tg">PRICE:</div>
 
-                      <div key={product.index}>
+                      <div className="price">
 {( this.state.filter ===    '') ? [price[0].currency.symbol, price[0].amount] : ''}
 {( this.state.filter === 'USD') ? [price[0].currency.symbol, price[0].amount] : ''}
 {( this.state.filter === 'GBP') ? [price[1].currency.symbol, price[1].amount] : ''}

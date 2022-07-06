@@ -56,11 +56,10 @@ selected : null
     <option value='RUB'>₽-RUB</option>
     <option value='JPY'>¥-JPY</option>
 </select>
-
 </div>
 
 </div>
-<h1 className="All">ALL</h1>
+<h1 className="All2">ALL</h1>
 <Query query={POST_QUERY}>
 {({loading,data,error}) => {
 if (loading){ return 'loading...';}
@@ -81,8 +80,8 @@ return(
  {(product.inStock === false ) ? 'out of stock!' : '' }
 </div>
 
-<Link key={product.id} to={`${product.id}`} >
-<div className="border"  key={product.id} >
+<Link key={product.id} to={`/clothes/${product.id}`} >
+<div className="border">
 <AiOutlineShoppingCart key={product.id} className="icon" />
 </div>
 </Link>

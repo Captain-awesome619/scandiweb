@@ -79,8 +79,12 @@ padding: 0.5rem;
 }
 
 .converter{
-    position: relative;
-    top: 20%;
+    display: flex;
+    position: absolute;
+    top: 2.8%;
+    align-items: center;
+    justify-content: center;
+    right: 25%;
 }
 .converter > option{
 font-family: 'Courier New', Courier, monospace;
@@ -95,8 +99,12 @@ font-family: 'Courier New', Courier, monospace;
     transform: scale(1.0);
 }
 
-.All{
-margin-left: 13rem;
+.All2{
+    display: flex;
+    margin-left: 10rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 1rem;
 }
 .brand{
     padding-bottom: 0.2rem;
@@ -110,4 +118,22 @@ margin-left: 13rem;
     position: relative;
     top: 0%;
     margin-left: 3rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 720px){
+    .products{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        .converter{
+            top: 0%;
+        }
+        .All2{
+            margin-left: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0rem;
+        }
+    }
+    .head{
+        margin-bottom: 5rem;
+    }
 }
