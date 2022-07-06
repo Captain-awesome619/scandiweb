@@ -1,0 +1,155 @@
+.wrapper{
+    display: flex;
+}
+
+.prod{
+    margin-left: 3rem;
+    margin-top: 3rem;
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 500px;
+    min-height: 500px;
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description{
+    display: grid;
+    padding-left: 10rem;
+}
+.model{
+    display: grid;
+    gap: 0.5rem;
+}
+.make{
+    font-weight: bolder;
+}
+.values{
+    display: flex;
+    gap: 2rem;
+}
+
+.value{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0.4rem;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:  0.5s ease-out;
+}
+.value:hover{
+    transform: scale(1.1);
+    border: 1px solid grey;
+}
+
+.prices{
+    margin-top: 1rem;
+    .tg{
+        font-weight: bold;
+        padding-bottom: 0.5rem;
+    }
+}
+.price{
+    font-weight: bolder;
+}
+
+.btn{
+    width: max-content;
+    display: inline-block;
+    color: white;
+    padding: 0.55rem 1.0rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 2px solid green;
+   background-color: green;
+    transition:  0.5s ease-out;
+    margin-top: 1rem;
+}
+.btn:hover{
+    border: 1px solid green;
+    background-color: white;
+    color: black;
+}
+
+.color{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+
+    .prod{
+        margin-left: 2rem;
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+    }
+    .values{
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .value{
+        border: 1px solid black;
+        padding: 0.4rem;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
+
+

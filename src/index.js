@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import ApolloClient from 'apollo-boost'
 import {ApolloProvider} from 'react-apollo'
+import { Router } from 'react-router';
 
 
 
@@ -14,7 +15,9 @@ const client = new ApolloClient({
       const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(
         <ApolloProvider client={client}>
+
           <App />
+          
         </ApolloProvider>
       );
 

@@ -79,7 +79,6 @@ return(
 <div className="name"> {product.name}
 </div>
 <div className="brand">Producer-{product.brand}</div>
-
 {
 [product.prices].map(price =>( <div className="price">
   <div>

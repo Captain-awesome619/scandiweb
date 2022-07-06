@@ -4,12 +4,13 @@ import { gql } from "apollo-boost";
 import {Query} from "react-apollo";
 import "../all/all.scss"
 import {AiOutlineShoppingCart} from "react-icons/ai"
-
+import { Link } from "react-router-dom";
 
 const POST_QUERY = gql`
 query {
   category{
     products{
+      id
       name
       inStock
       gallery
@@ -29,15 +30,19 @@ class ALL extends Component {
   constructor(props){
     super(props);
     this.state = {
-      filter : ''}
+      filter : '',
+selected : null
+    }
       this.handleFilter = this.handleFilter.bind(this)
     }
   handleFilter = (e) =>{
     const  value   = e.target.value;
      this.state.filter = value
     this.setState({ filter : value});
-    console.log(this.state);
+    console.log("hello")
    }
+
+
 
     render(){
         return( <div>
@@ -63,26 +68,33 @@ if (error){
   return <div>Error: {error.toString()}</div>
 }
 return(
+
   <div>
 {
   <div className="products">
-    {data.category.products.map(product =>(
-<div className="all">
-  <div className="items">
-  <img className="item"  src={product.gallery} alt='product' key={product.id}/>
- <div className="stock">
+    {data.category.products.map((product) =>(
+<div className="all" key={product.id} >
+
+  <div className={` items ${product.inStock=== false ? "stock" : ""}`} key={product.id}>
+  <img className="item"  src={product.gallery} alt='product' key={product.index}/>
+ <div className="font" >
  {(product.inStock === false ) ? 'out of stock!' : '' }
 </div>
-<div className="border">
-  < AiOutlineShoppingCart className="icon"/>
+
+<Link key={product.id} to={`${product.id}`} >
+<div className="border"  key={product.id} >
+<AiOutlineShoppingCart key={product.id} className="icon" />
 </div>
+</Link>
+
+
   <div className="tag">
-<div className="name"> {product.name}
+<div className="name" > {product.name}
 </div>
 <div className="brand">Producer-{product.brand}</div>
 {
 [product.prices].map(price =>( <div className="price">
-  <div>
+  <div key={product.index}>
 {( this.state.filter ===    '') ? [price[0].currency.symbol, price[0].amount] : ''}
 {( this.state.filter === 'USD') ? [price[0].currency.symbol, price[0].amount] : ''}
 {( this.state.filter === 'GBP') ? [price[1].currency.symbol, price[1].amount] : ''}
@@ -97,8 +109,10 @@ return(
    </div>
    ))}
 </div>
+
 }
   </div>
+
 )
 }}</Query>
 </div>
