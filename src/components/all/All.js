@@ -80,7 +80,7 @@ return(
  {(product.inStock === false ) ? 'out of stock!' : '' }
 </div>
 
-<Link key={product.id} to={`/clothes/${product.id}`} >
+<Link key={product.id} to={`${product.id}`} >
 <div className="border">
 <AiOutlineShoppingCart key={product.id} className="icon" />
 </div>
