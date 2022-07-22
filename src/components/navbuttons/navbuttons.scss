@@ -1,0 +1,34 @@
+.navbuttons{
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    transition: 0.5s ease-out;
+}
+
+.navbuttons::after{
+    position: absolute;
+    height: 0.2rem;
+width: 0rem;
+background-color: green;
+border-radius: 1rem;
+content: '';
+margin-top: 1rem;
+transition: 0.5s ease-out;
+}
+
+.navbuttons:hover{
+    color: green;
+    font-size: 1.3rem;
+}
+.navbuttons:hover::after{
+width: 3rem;
+}
+
+.active-button{
+    color: green;
+}
+.border{
+    background-color:green;
+}
+

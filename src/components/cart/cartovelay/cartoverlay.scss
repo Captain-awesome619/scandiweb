@@ -1,0 +1,171 @@
+.Minicart{
+    position: absolute;
+    width: 100vw;
+    left: 0rem;
+}
+
+.background{
+    height: 100%;
+    width: 100%;
+    background: #39374885;;
+    z-index: 1;
+    position: fixed;
+}
+
+.overlay-background{
+    position: absolute;
+      right: calc(100vw - 95%);
+      width: 375px;
+      background-color: white;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 25px;
+      height: max-content;
+}
+
+.Minicart-Header{
+display: flex;
+gap: 1rem;
+}
+.overlay-title{
+    font-weight: bolder;
+}
+.count{
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.title-details{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.features1-brand{
+position: absolute;
+padding-top: 1.5rem;
+}
+
+.border-top{
+    border-top: 1px solid black;
+    margin-top: 0.3rem;
+}
+
+.overlay-image{
+    position: absolute;
+    right: 0%;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.features1{
+display: flex;
+gap: 1rem;
+}
+.quantity{
+    display: flex;
+
+}
+
+
+.top{
+    display: flex;
+}
+.features1-name{
+    position: absolute;
+}
+
+.text-options{
+    margin-top: 3rem;
+}
+
+.currency-border{
+    padding-top: 3rem;
+    font-weight: bold;
+}
+
+.total{
+    display: flex;
+    gap: 2rem;
+}
+
+.total>p{
+    font-weight: bold;
+}
+
+.functions{
+    display: flex;
+    gap: 2rem;
+}
+
+.checkout{
+padding: 0.5rem;
+border: 0px;
+background-color: green;
+color: white;
+transition: 0.5s ease ;
+}
+.checkout:hover{
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}
+
+.cancel{
+    width:10px;
+    height: 10px;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+
+.color-selected{
+    padding: 1rem;
+    border: transparent;
+padding: 1rem;
+}
+.color-notselected{
+    padding: 0.5rem;
+}
+
+
+.features1-swatch{
+margin-top: 3rem;
+}
+
+.amount{
+    position: absolute;
+    right: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+    .Minicart{
+        margin-left: 7rem;
+    }
+
+.overlay-image{
+    right: 16%;
+}
+.amount{
+    right: 40%;
+}
+    .background{
+   background: transparent;
+    }
+}
+
+
+

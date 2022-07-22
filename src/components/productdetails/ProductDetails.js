@@ -1,140 +1,232 @@
-import React, {Component} from "react";
-import { gql } from "apollo-boost";
-import {Query} from "react-apollo";
-import Navbar from "../navbar/Navbar";
+import React, { Component } from 'react'
+import Features from './features/Features'
+import {gql} from "apollo-boost"
+import {graphql} from "react-apollo"
+import {withRouter} from "../../utils/withRouter"
+import {connect} from "react-redux"
+import parse from "html-react-parser"
 import "../productdetails/productdetails.scss"
+import * as AddToCart from '../../store/actions/Cart'
 
-const PROD_QUERY = gql`
-    query($id : String!) {
-      product(id: $id){
+const Product = gql`
+  query GetProduct($id: String!) {
+    product(id: $id) {
+      id
+      name
+      inStock
+      gallery
+      description
+      category
+      attributes {
         id
         name
-        gallery
-        brand
-        description
-        attributes{
+        type
+        items {
+          displayValue
+          value
           id
-          name
-          type
-          items{
-            id
-            displayValue
-            value
-          }
-        }
-        prices{
-          amount
-          currency{
-            symbol
-          }
         }
       }
+      prices {
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
+      brand
     }
-    `;
-class ProductDetails extends Component{
-state = {
-  id: null
-}
-  componentDidMount(){
-    console.log(this.props)
-    let id = this.props.match.params.id;
-    this.setState({
-      id: id
-    })
   }
-  constructor(props){
-    super(props);
-    this.state = {
-      filter : ''}
-      this.handleFilter = this.handleFilter.bind(this)
-    }
-  handleFilter = (e) =>{
-    const  value   = e.target.value;
-     this.state.filter = value
-    this.setState({ filter : value});
-    console.log(this.state)
-   }
-  render(){
-    console.log(this.props)
-return <div>
-  <div className="head">
-      <Navbar/>
-      <div>
-<select className='converter'  onChange={this.handleFilter}>
-    <option value='USD'>$-USD</option>
-    <option value='GBP'>£-GBP</option>
-    <option value='AUD'>A$-AUD</option>
-    <option value='RUB'>₽-RUB</option>
-    <option value='JPY'>¥-JPY</option>
-</select>
-</div>
-      </div>
-<Query query={PROD_QUERY} variables={{id:this.state.id}}>
-{({loading,data,error}) => {
-if (loading){ return 'loading...';}
-if (error){
-  return <div>Error: {error.toString()}</div>
-}
-return(
-  <div className="wrapper">
-    {
-      Object.values(data).map((product,gallery)=>(
-        <div className="section">
-          <div>
-          <img key={gallery} src={product.gallery} className='prod'/>
-          </div>
-          <div className="description">
-            <div className="model">
-<div className="make">{product.brand}</div>
-<div>{product.name}</div>
-               </div>
-               <div className="size">
-                {Object.values(product.attributes).map((attribute,id)=>(
-                  <div key={id}>
-<h4 className="feature">
-  {attribute.name}
-</h4>
-<div className={`values ${attribute.type === "swatch" ? "col" : " "}`}>
-  {Object.values(attribute.items).map((item)=>(
-    <div className="value2">
-      {item.displayValue}
-      </div>
-  ) )
-  }
-  </div>
-                     </div>
-                ))}
-                <div>
-                  {Object.values([product.prices]).map((price)=>(
-                    <div className="prices">
-                      <div className="tg">PRICE:</div>
+`;
 
-                      <div className="price">
-{( this.state.filter ===    '') ? [price[0].currency.symbol, price[0].amount] : ''}
-{( this.state.filter === 'USD') ? [price[0].currency.symbol, price[0].amount] : ''}
-{( this.state.filter === 'GBP') ? [price[1].currency.symbol, price[1].amount] : ''}
-{( this.state.filter === 'AUD') ? [price[2].currency.symbol, price[2].amount] : ''}
-{( this.state.filter === 'JPY') ? [price[3].currency.symbol, price[3].amount] : ''}
-{( this.state.filter === 'RUB') ? [price[4].currency.symbol, price[4].amount] : ''}
-</div>
-                    </div>
-                  ))}
-                </div>
-                  <button className="btn">ADD TO CART</button>
-               </div>
-               <div>
-                <p>{product.description}</p>
-               </div>
-          </div>
-        </div>
-      ))
+
+
+ class ProductDetails extends Component {
+constructor(){
+super();
+this.state ={
+  viewimage : 0
+}
+  this.attributes =[]
+
+}
+
+
+AddToCart(data){
+  const content = 1;
+  if (data.product.attributes.length === 0) {
+    this.props.dispatch(
+      AddToCart.ADD_TO_CART({
+        productId: data.product.id,
+        attributes: [],
+        quantity: content,
+      })
+    );
+  }
+  else {
+    if (data.product.attributes.length !== this.attributes.length){
+return( alert("PLEASE PICK AN OPTION IN ALL FIELDS!"))
     }
-  </div>
-)
+else{
+  let error = false;
+
+  this.attributes.map((attribute) => {
+    if (attribute.selected === null) {
+      error = true;
+      return(alert("PLEASE PICK AN OPTION IN ALL FIELDS!"))
+    }
+return null;
+  });
+  if (error === false) {
+    this.props.dispatch(
+      AddToCart.ADD_TO_CART({
+        productId: data.product.id,
+        attributes: this.attributes,
+        quantity: content,
+      })
+    );
+    alert("SUCCESSFULLY ADDED TO CART!")
+  }
+
+}
+
+  }
+
+
+}
+
+
+Attributes(data) {
+  const dataAttributes = data.product.attributes;
+  if (dataAttributes.length !==0) {return dataAttributes.map((attribute , key) => {
+    return(
+      <Features
+attribute={attribute}
+key={key}
+Selections={(selection)=> {
+  this.Selections(selection);
 }}
-</Query>
+      />
+    )
+  })
 
-    </div>
   }
 }
-export default ProductDetails;
+
+productImage(data){
+  return data.product.gallery.map((imageURL,key)=>(
+    <img
+    src={imageURL}
+    key={key}
+className="imagess"
+alt='options'
+onClick={() => (
+  this.setState({ viewimage : key})
+  )}
+    />
+  ));
+}
+
+Selections(selection){
+  let sameId = false;
+  let itemKey = null;
+
+  if (this.attributes.length !== 0) {
+    this.attributes.forEach((item, key) => {
+      if (item.id === selection.id) {
+        sameId = true;
+        itemKey = key;
+      }
+    });
+    if (sameId) {
+      const tempAttributes = [...this.attributes];
+      tempAttributes.splice(itemKey, 1, selection);
+      this.attributes = tempAttributes;
+    } else {
+      this.attributes = [...this.attributes, selection];
+    }
+  } else {
+    this.attributes = [selection];
+  }
+
+}
+
+  render() {
+    const data = this.props.data
+    if (data.loading){
+      return <h2>getting images...</h2>
+    }
+    return (
+      <div className='product'>
+        <div className='show'>
+
+
+
+
+          <div className='images'>
+            {this.productImage(data)}
+          </div>
+
+          <img
+src= {data.product.gallery[this.state.viewimage]}
+className='main-img'
+alt='main'
+            />
+
+          </div>
+<div className='prodetails'>
+<div className='prodheader'>
+<p className='brand'>{data.product.brand}</p>
+<p className='prodname'>{data.product.name}</p>
+</div>
+<div>
+  {this.Attributes(data)}
+</div>
+<div className='pricing'>
+  PRICE:
+<div className='amount'>
+   {data.product.prices[this.props.activeCurrency].currency.symbol}
+              {data.product.prices[this.props.activeCurrency].amount}
+              </div>
+</div>
+
+<div>
+{data.product.inStock ? (
+  <button
+   className='addtocart' onClick={() =>{
+    this.AddToCart(data)
+   }}>ADD TO CART</button>
+): <button className='outofstock-button'>
+OUT OF STOCK
+  </button>}
+</div>
+
+
+
+
+<div className="descript">
+            {parse(data.product.description)}
+          </div>
+</div>
+      </div>
+    )
+  }
+}
+
+export default connect((state) => ({
+  activeCurrency: state.currency.activeCurrency,
+})) (
+  withRouter(
+    graphql(Product, {
+      options: (props) => {
+        return {
+          variables: {
+            id: props.match.params.id,
+          },
+          fetchPolicy: "no-cache",
+        };
+      },
+    })(ProductDetails)
+  )
+);
+
