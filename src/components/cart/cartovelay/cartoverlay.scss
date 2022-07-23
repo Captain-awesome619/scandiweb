@@ -104,7 +104,8 @@ padding: 0.5rem;
 border: 0px;
 background-color: green;
 color: white;
-transition: 0.5s ease ;
+transition: 0.5s ease;
+cursor: pointer;
 }
 .checkout:hover{
     background-color: transparent;
@@ -139,7 +140,14 @@ margin-top: 3rem;
     right: 25%;
 }
 
-
+.viewbag{
+    cursor: pointer;
+    transition: 0.5s  ease-out;
+}
+.viewbag:hover{
+    background-color: black;
+    color: white;
+}
 
 
 

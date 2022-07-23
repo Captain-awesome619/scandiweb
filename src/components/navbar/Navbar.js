@@ -109,6 +109,16 @@ toggleDisplay(){
             <GiHamburgerMenu onClick={this.toggleDisplay} />
           </div>
 </div>
+
+<div>
+  <img
+src={icon}
+alt="logo"
+className='logo-icon'
+  />
+</div>
+
+
             <div
               className="changer"
               onClick={() => {
@@ -146,14 +156,11 @@ toggleDisplay(){
           { [this.props.cartItems].length > 0 ? (
     <p className='figure'>{[this.props.cartItems].length}</p>
         ) : null }
-
 <img
 src={cart}
 alt="cart"
 className='cart1'
-onClick={() =>{this.ToggleCartOverlay()}}
-
-/>
+onClick={() =>{this.ToggleCartOverlay()}}/>
 </div>
 {this.state.cartoverlay === true ? (
   <CartOverlay

@@ -285,7 +285,7 @@ onClick={this.props.onOutClick}
                      </div>
                      <div className="functions">
                        <button
-                         className="Minicart-Functions-ViewBagButton"
+                         className="viewbag"
                          onClick={() => {
                            this.props.navigate(`/cart`);
                            this.props.onOutClick();
