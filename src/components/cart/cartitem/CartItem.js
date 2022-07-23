@@ -57,9 +57,9 @@ Displayfeatures() {
                     className="cartattriswatch"
                     key={itemAttributeSelection.id}
                   >
-                    <div className="Product-Information-Attributes-Attribute-AttributeSwatch">
+                    <div>
                       <div
-                        className="Product-Information-Attributes-Attribute-AttributeSwatch-Option"
+                      
                         key={key}
                       >
                         <button
@@ -73,7 +73,7 @@ Displayfeatures() {
                           }}
                           key={key}
                         />
-                        <p className="Product-Information-Attributes-Attribute-AttributeSwatch-Option-Text">
+                        <p>
                           {itemAttributeSelection.displayValue}
                         </p>
                       </div>
