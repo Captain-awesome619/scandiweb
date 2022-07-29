@@ -6,15 +6,14 @@ const INITIAL_STATE = {
   export default function cart(state = INITIAL_STATE, action) {
     if (action.type === "ADD_TO_CART") {
 
-      // if there is itens in cartItems
+
       if(state.cartItems.length !== 0){
           let sameSelectedAttributes = false;
           let sameSelectedAttributeIndex
-          state.cartItems.map((cartItem, index)=>{
+          state.cartItems.map((cartItem, index) => {
               if(cartItem.productId === action.product.productId){
-                  //look for same attributes
                   const actionSorted = action.product.attributes.slice().sort()
-                  const cartItemSorted = cartItem.attributes.slice().sort()
+                  const cartItemSorted = cartItem.attributes
                   if(JSON.stringify(actionSorted) === JSON.stringify(cartItemSorted)){
                       sameSelectedAttributes = true;
                       sameSelectedAttributeIndex = index
@@ -24,7 +23,7 @@ const INITIAL_STATE = {
           })
 
           if(sameSelectedAttributes){
-            //update the cart quantity
+
               const quantitySteps = 1
               const newQuantity = state.cartItems[sameSelectedAttributeIndex].quantity + quantitySteps
               localStorage.setItem(

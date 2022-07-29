@@ -29,9 +29,9 @@ export const CART = gql`
           name
           type
           items {
+            id
             displayValue
             value
-            id
           }
         }
         gallery
@@ -47,75 +47,79 @@ export const CART = gql`
 
 
 class CartOverlay extends Component {
+
   showAttributes(cartItem, item) {
-     return cartItem.attributes.map((cartItemAttribute, index) => (
-     <div
-     className="features1"
-     key={index}
-     >
+    return cartItem.attributes.map((cartItemAttribute, index) => (
+    <div
+    className="features1"
+    key={index}
+    >
 
-     <p className="features1-name">
-     {cartItemAttribute.id}:
-     </p>
-     {item.attributes.map((itemAttribute) =>
-     cartItemAttribute.id === itemAttribute.id
-     ? itemAttribute.items.map((itemAttributeSelection, key) => {
-     if (cartItemAttribute.type === "text") {
-     return (
- <div
-     className="features1-Attribute"
-     key={itemAttributeSelection.id}>
-     <div className='text-options' >
-     <button
+    <p className="features1-name">
+    {cartItemAttribute.id}:
+    </p>
+    {item.attributes.map((itemAttribute) =>
+    cartItemAttribute.id === itemAttribute.id
+    ? itemAttribute.items.map((itemAttributeSelection, key) => {
+    if (cartItemAttribute.type === "text") {
+    return (
+<div
+    className="features1-Attribute"
+    key={itemAttributeSelection.id}>
+    <div className='text-options' >
+    <button
 
-         className={
-         cartItemAttribute.selected === key
-             ? "selected-option"
-             : "unselected-option"
-         }
-     >
-         <p className="option-tex">
-         {itemAttributeSelection.value}
-         </p>
-     </button>
-     </div>
-     </div>
-     );
-     }
-     if (cartItemAttribute.type === "swatch") {
-     return (
-     <div
-     className="features1-swatch"
-     key={key}
- >
+        className={
+        cartItemAttribute.selected === key
+            ? "selected-option"
+            : "unselected-option"
+        }
+    >
+        <p className="option-tex">
+        {itemAttributeSelection.value}
+        </p>
+    </button>
+    </div>
+    </div>
+    );
+    }
+    if (cartItemAttribute.type === "swatch") {
+    return (
+    <div
+    className="features1-swatch"
+    key={key}
+>
 
- <div>
-     <button
-     className={
-         cartItemAttribute.selected === key
-         ? "color-selected"
-         : "color-notselected"
-     }
-     style={{
-         backgroundColor: `${itemAttributeSelection.value}`,
-     }}
-     />
-     <p className="swatch-text">
-     {itemAttributeSelection.displayValue}
-     </p>
- </div>
+<div>
+    <button
+    className={
+        cartItemAttribute.selected === key
+        ? "color-selected"
+        : "color-notselected"
+    }
+    style={{
+        backgroundColor: `${itemAttributeSelection.value}`,
+    }}
+    />
+    <p className="swatch-text">
+    {itemAttributeSelection.displayValue}
+    </p>
+</div>
 
- </div>
- );
- }
- return null;
-             })
-         : null
-     )}
+</div>
+);
+}
+return null;
+            })
+        : null
+    )}
 
-     </div>
- ));
- }
+    </div>
+));
+}
+
+
+
 
  showProducts(data) {
  return this.props.cartItems.map((cartItem, key) => {
@@ -325,6 +329,7 @@ onClick={this.props.onOutClick}
          },
        })(withRouter(CartOverlay))
      );
+
 
 
 

@@ -18,7 +18,7 @@ constructor(){
     }
 }
 
-Displayfeatures() {
+Attributes() {
     return this.props.cartItem.attributes.map((cartItemAttribute, index) => (
       <div className="item-attributes" key={index}>
 
@@ -59,7 +59,7 @@ Displayfeatures() {
                   >
                     <div>
                       <div
-                      
+
                         key={key}
                       >
                         <button
@@ -131,7 +131,7 @@ Displayfeatures() {
               {this.props.item.prices[this.props.activeCurrency].amount}
             </p>
           </div>
-          {this.Displayfeatures()}
+          {this.Attributes()}
         </div>
 
 <div className='sideshow'>
@@ -204,7 +204,7 @@ Displayfeatures() {
     )}};
 
     export default connect((state) => ({
-        cartItems: state.cart.cartItems
+        cartItems: state.cart.cartItems,
       }))(CartItem);
 
 

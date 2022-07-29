@@ -98,7 +98,7 @@ return null;
 
 Attributes(data) {
   const dataAttributes = data.product.attributes;
-  if (dataAttributes.length !==0) {return dataAttributes.map((attribute , key) => {
+  if (dataAttributes.length !== 0) {return dataAttributes.map((attribute , key) => {
     return(
       <Features
 attribute={attribute}

@@ -8,7 +8,7 @@ import down from '../../assests/arrow-down.svg'
 import up from '../../assests/arrow-up.svg'
 import Navbuttons from '../navbuttons/Navbuttons';
 import { gql } from 'apollo-boost';
-import "../Navbar/Navbar.scss"
+import "../navbar/navbar.scss"
 import CartOverlay from '../cart/cartovelay/CartOverlay';
 import CurrencyChanger from '../currencyChanger/CurrencyChanger';
 import cart from "../../assests/cart.svg"
@@ -153,8 +153,8 @@ className='logo-icon'
             </div>
             <div>
 <div className='overlay'>
-          { [this.props.cartItems].length > 0 ? (
-    <p className='figure'>{[this.props.cartItems].length}</p>
+          { this.props.cartItems.length > 0 ? (
+    <p className='figure'>{this.props.cartItems.length}</p>
         ) : null }
 <img
 src={cart}
@@ -169,8 +169,6 @@ onOutClick = {() => {
 cartoverlay : false
   })
 }}
-
-
   />
 ) : null }
 
@@ -180,5 +178,5 @@ cartoverlay : false
 export default connect((state) => ({
     category:state.category,
     currency: state.currency,
-    cartItems: state.cartItems,
+    cartItems: state.cart.cartItems,
 }))(graphql(NAVDATA)(withRouter(Navbar)));

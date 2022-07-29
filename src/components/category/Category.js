@@ -4,7 +4,7 @@ import {graphql} from 'react-apollo'
 import { connect } from 'react-redux'
 import ProductItem from '../productCard/productItem'
 import "../category/category.scss"
-import Navbar from '../Navbar/Navbar'
+
 
 
 const ALLPRODUCTS = gql`

@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import './App.css';
 
-import Navbar from './components/Navbar/Navbar';
+import Navbar from '../src/components/navbar/Navbar';
 import { Provider } from 'react-redux';
 import store from './store/index'
 
@@ -17,7 +17,7 @@ render(){
     <Provider store={store}>
      <BrowserRouter>
      <Navbar/>
-<Routes>
+<Routes >
 <Route path="/" element={<Category/>}/>
 <Route path="/product/:id" element={<ProductDetails/>}/>
 <Route path="/cart" element={<Cartpage/>}/>

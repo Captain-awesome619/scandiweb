@@ -6,24 +6,24 @@ class Features extends Component {
     constructor(){
         super();
         this.state ={
-            chosen: null
+            selected: null
         }
     }
 
 optionchanger(key,type){
-    if (this.state.chosen === key) {
-        this.setState({ chosen: null });
+    if (this.state.selected === key) {
+        this.setState({ selected: null });
         return this.props.Selections({
           id: this.props.attribute.id,
           type: type,
-          chosen: null,
+          selected: null,
         });
       } else {
-        this.setState({ chosen: key });
+        this.setState({ selected: key });
         return this.props.Selections({
           id: this.props.attribute.id,
           type: type,
-          chosen: key,
+          selected: key,
         });
       }
 }
@@ -34,7 +34,7 @@ if (this.props.attribute.type === "text") {
         <p className='attrtext'>{this.props.attribute.name}:</p>
 <div className='text-buttons' >
     {this.props.attribute.items.map((item, key) => (
-        <button className={this.state.chosen === key
+        <button className={this.state.selected === key
 ? "text-select"
 : "text-unselect"
 }
@@ -61,7 +61,7 @@ key={key}>
 {this.props.attribute.items.map((item,key) => (
     <div className='options' key={key}>
 <button className={
-    this.state.chosen === key ?
+    this.state.selected === key ?
     "color-picked"
     :"colors"
 }

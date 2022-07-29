@@ -19,7 +19,6 @@ addToCart: false
     this.props.navigate(`/product/${this.props.data.id}`);
   }
 
-
 Addtocart(e){
 if (this.props.data.attributes.length === 0 ) {
   this.props.dispatch(
@@ -32,10 +31,10 @@ if (this.props.data.attributes.length === 0 ) {
 }
 else{
   let attributesSelection = [];
-  this.props.data.attributes.map((attribute, key) =>{
+  this.props.data.attributes.map((attribute, key) => {
     const initialOption = 0;
-    const recentattribute ={
-      id : attribute.id,
+    const recentattribute = {
+      id: attribute.id,
       type: attribute.type,
       selected: initialOption,
     };
@@ -46,8 +45,8 @@ else{
   this.props.dispatch(
     CartActions.ADD_TO_CART({
       productId: this.props.data.id,
-      attributes:attributesSelection,
-      quantity:1
+      attributes: attributesSelection,
+      quantity: 1
     })
   )
 }
@@ -76,7 +75,7 @@ className='image'
 src={this.props.data.gallery[0]}
   />
 
-{this.state. addToCart ? (
+{this.state.addToCart ? (
             this.props.data.inStock === true ? (
               <button
                 className="cart-icon"
@@ -95,7 +94,7 @@ src={this.props.data.gallery[0]}
               disabled = {true}
                 className="cart-icon"
                 onClick={(e) => {
-                  e.stopPropagation();
+                  e.stopPropagation(e);
                 }}
               >
                 <img
