@@ -1,24 +1,54 @@
 .text-buttons{
     gap: 1rem;
     display: flex;
+
 }
 
+
 .text-unselect{
-    transition: 0.5s ease-out;
+    padding: 0 15px;
+    height: 45px;
+    border: 1px solid  black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    user-select: none;
+    background-color: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+    transition: 0.5s ease;
 }
+
 .text-unselect:hover{
-    background-color: white;
     transform: scale(1.1);
 }
 
 .text-select{
-    background-color: black;
-    color: white;
+    padding: 0 15px;
+      height: 45px;
+      border: 1px solid  black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      user-select: none;
+      background-color: black;
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+
 }
 
 .colors{
-    padding: 1rem;
-    transition: 0.5s ease-out;
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    border: 0.5px solid gray;
+    margin-bottom: 5px;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .colors:hover{
@@ -28,7 +58,27 @@
 
 
 .color-picked{
-    padding: 1rem;
-    border: transparent;
-    transform: scale(1.3);
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    border: 2px solid green;
+    margin-bottom: 5px;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.swatchopt{
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+
 }

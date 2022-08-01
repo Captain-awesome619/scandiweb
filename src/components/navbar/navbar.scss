@@ -12,7 +12,7 @@ position: absolute;
 align-items: center;
 justify-content: center;
 top: 4%;
-left: 75%;
+left: 65%;
 gap: 0rem;
 z-index: 1;
 }
@@ -59,7 +59,7 @@ display: none;
 
 .logo-icon{
     display: flex;
-    padding-top: 1rem;
+    padding-top: 1.9rem;
     position: absolute;
     left: 50%;
     cursor: pointer;
@@ -100,16 +100,18 @@ display: none;
     }
 .overlay{
     margin-top: 0rem;
+    right: 20%;
 }
 
     .changer{
-    left: 80%;
+    left: 85%;
     top: 3%;
 }
 .logo{
-    margin-left: 5rem;
+    margin-left: 15rem;
 }
 .logo-icon{
+    padding-top: 1rem;
     left: 40%;
 }
 }

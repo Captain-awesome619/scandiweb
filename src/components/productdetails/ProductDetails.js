@@ -85,7 +85,7 @@ return null;
         quantity: content,
       })
     );
-    alert("SUCCESSFULLY ADDED TO CART!")
+    alert( `${data.product.name} added to the cart` )
   }
 
 }
@@ -160,16 +160,15 @@ Selections(selection){
       <div className='product'>
         <div className='show'>
 
-
-
-
           <div className='images'>
             {this.productImage(data)}
           </div>
-
+          <div>
+  {data.product.inStock === false ? <p className='detailstock'>OUT OF STOCK</p> : "" }
+</div>
           <img
 src= {data.product.gallery[this.state.viewimage]}
-className='main-img'
+className="main-img"
 alt='main'
             />
 
@@ -184,7 +183,7 @@ alt='main'
 </div>
 <div className='pricing'>
   PRICE:
-<div className='amount'>
+<div className='amountprice'>
    {data.product.prices[this.props.activeCurrency].currency.symbol}
               {data.product.prices[this.props.activeCurrency].amount}
               </div>
@@ -198,7 +197,9 @@ alt='main'
    }}>ADD TO CART</button>
 ): <button className='outofstock-button'>
 OUT OF STOCK
-  </button>}
+  </button>
+
+  }
 </div>
 
 

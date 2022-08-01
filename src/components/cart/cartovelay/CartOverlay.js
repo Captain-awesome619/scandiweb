@@ -90,7 +90,7 @@ class CartOverlay extends Component {
     key={key}
 >
 
-<div>
+<div className='swatch-options'>
     <button
     className={
         cartItemAttribute.selected === key
@@ -136,13 +136,15 @@ return null;
      <p className="features1-name">
          {item.name}
      </p>
-     </div>
-     <div className='currency-border'>
+    <div className='currency-border'>
      <p>
          {item.prices[this.props.activeCurrency].currency.symbol}
          {item.prices[this.props.activeCurrency].amount}
      </p>
      </div>
+
+     </div>
+
      {this.showAttributes(cartItem, item)}
  </div>
  <div className='quantity'>
@@ -245,18 +247,22 @@ return null;
                  }}
                >
                  <div className="Minicart-Header">
-                  <img
-src={cancel}
-alt="clear"
-className='cancel'
-onClick={this.props.onOutClick}
-                  />
+
                    <p className="overlay-title">My Bag</p>
                    <p className="count">
                       {this.props.cartItems.length}{" "}
                      {this.props.cartItems.length === 1 ? "item" : "items"}
                    </p>
                  </div>
+
+                 <img
+src={cancel}
+alt="clear"
+className='cancel'
+onClick={this.props.onOutClick}
+                  />
+
+
 
                  {this.props.cartItems.length === 0 ? (
                    <div className="empty-cart">
@@ -277,6 +283,7 @@ onClick={this.props.onOutClick}
                      <div className="cart-products">
                        {this.showProducts(data)}
                      </div>
+                     <div className='cashier'>
                      <div className="total">
                        <p>Total</p>
                        <p>
@@ -305,6 +312,7 @@ onClick={this.props.onOutClick}
                        >
                          CHECK OUT
                        </button>
+                     </div>
                      </div>
                    </>
                  )}

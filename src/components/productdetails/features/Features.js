@@ -6,24 +6,24 @@ class Features extends Component {
     constructor(){
         super();
         this.state ={
-            selected: null
+            chosen: null
         }
     }
 
 optionchanger(key,type){
-    if (this.state.selected === key) {
-        this.setState({ selected: null });
+    if (this.state.chosen === key) {
+        this.setState({ chosen: null });
         return this.props.Selections({
           id: this.props.attribute.id,
           type: type,
-          selected: null,
+          chosen: null,
         });
       } else {
-        this.setState({ selected: key });
+        this.setState({ chosen: key });
         return this.props.Selections({
           id: this.props.attribute.id,
           type: type,
-          selected: key,
+          chosen: key,
         });
       }
 }
@@ -34,7 +34,7 @@ if (this.props.attribute.type === "text") {
         <p className='attrtext'>{this.props.attribute.name}:</p>
 <div className='text-buttons' >
     {this.props.attribute.items.map((item, key) => (
-        <button className={this.state.selected === key
+        <button className={this.state.chosen === key
 ? "text-select"
 : "text-unselect"
 }
@@ -56,12 +56,13 @@ key={key}>
 
   if (this.props.attribute.type === "swatch"){
     return (<div className='wrapper'>
-<h3 className='attrname'>{this.props.attribute.name}:</h3>
+<p className='attrname'>{this.props.attribute.name}:</p>
 <div className='swatchopt'>
+
 {this.props.attribute.items.map((item,key) => (
     <div className='options' key={key}>
 <button className={
-    this.state.selected === key ?
+    this.state.chosen === key ?
     "color-picked"
     :"colors"
 }
@@ -70,9 +71,6 @@ onClick={() => {this.optionchanger(key, "swatch")
 }}
 key={key}
 />
-<p>{item.displayValue}</p>
-
-
          </div>
 ))}
 </div>
