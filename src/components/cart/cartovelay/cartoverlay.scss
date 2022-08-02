@@ -67,6 +67,7 @@ padding-top: 1rem;
     right: 0%;
     max-width: 160px;
     max-height: 160px;
+
 }
 
 .features1{
@@ -161,10 +162,11 @@ margin-top: 1.5rem;
 }
 
 .amount{
-    position: absolute;
-    right: 40%;
+    position: relative;
+    right: 8.5rem;
     display: grid;
     gap: 2rem;
+
 }
 
 .viewbag{
@@ -194,7 +196,7 @@ margin-top: 1.5rem;
 
 .cart-products{
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .cashier{
