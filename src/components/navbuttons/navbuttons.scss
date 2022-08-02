@@ -40,16 +40,17 @@
 
 .active-button{
     font-weight: 600;
-            color: green;
+            color: var(--main);
 }
 
 .unactive-button:hover{
-    color: green;
+    color: var(--main);
 }
 
 .border{
+ position: relative;
     width: 100%;
         height: 2px;
-        background-color: green;
-        margin-top: 1rem;
+        background-color: var(--main);
+top: 3%;
 }

@@ -1,21 +1,28 @@
 .Product {
     width: 90%;
     display: flex;
-    border-top: 1px solid #e5e5e5;
-    gap: 10rem;
+    border-top: 2px solid #e5e5e5;
+    gap: 11 rem;
     margin-left: 10rem;
+    justify-content: space-between;
 }
-
+.cartbrand{
+  font-weight: bolder;
+}
+.cartdetails{
+font-family: "Raleway";
+}
 .cartimage{
-  max-width: 150px;
-  max-height: 150px;
-  min-width: 150px;
-  min-height: 150px;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+
 }
 .sideshow{
 display: flex;
 margin-top: 1rem;
 gap: 2rem;
+margin-right: 2rem;
 }
 
 .info{
@@ -24,18 +31,19 @@ gap: 2rem;
 }
 .cartfeatname{
   font-weight: bolder;
+  font-family: "Roboto";
 }
 
 .item-attributes{
-  display: flex;
+  display: grid;
   flex-direction: row;
 }
 
 .cartattritext{
-  margin-top: 3rem;
+  margin-top: 0rem;
   align-items: center;
   justify-content: center;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
 }
 
 .cartimage{
@@ -43,48 +51,122 @@ gap: 2rem;
 }
 
 .cartquantity{
-  padding-top: 2rem;
+  display: grid;
+
 }
 
-
+.carttextoption{
+  padding: 0 15px;
+  height: 45px;
+  border: 1px solid  var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  user-select: none;
+  background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
 
 .carttextselected{
-  background-color: black;
-  color: white;
+  padding: 0 15px;
+      height: 45px;
+      border: 1px solid  var(--black);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      user-select: none;
+      background-color: var(--black);
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+
 }
 
 .cartattriswatch{
-  margin-top: 3rem;
+  margin-top: 0rem;
   align-items: center;
   justify-content: center;
-  padding-right: 1rem;
+  padding-right: 0rem;
+  gap: 0.5rem;
 }
 
 .cartswatchselected{
-  padding: 1rem;
-  border: transparent;
-  transform: scale(1.3);
+  height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    border: 2px solid var(--main);
+    margin-bottom: 5px;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .cartswatchoption{
-  padding: 0.5rem;
+  height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    border: 0.5px solid var(--gray);
+    margin-bottom: 5px;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .selected-option{
   color: white;
-background-color: black;
+background-color: var(--black);
 }
 
 .arrowicons{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5rem;
+  gap: 10rem;
   transform: scale(1.2);
+  bottom: 28%;
+  position: relative;
+  cursor: pointer;
 }
 
+.cartchoice{
+  display: flex;
+}
+.cartadd{
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+border: 1px solid var(--black);
+}
 
+.cartminus{
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+border: 1px solid var(--black);
+}
 
+.cartname{
+  font-family: "Raleway";
+}
+
+.cartprice{
+  font-weight: bold;
+  font-family: "Raleway";
+}
 
 @media screen and (min-width: 320px) and (max-width: 768px){
 .Product{
@@ -110,6 +192,38 @@ gap: 1.5rem;
   display: grid;
   margin-left: 5rem;
 }
+
+.carttextoption{
+  padding: 0 10px;
+  height: 25px;
+  border: 1px solid  black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  user-select: none;
+  background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.carttextselected{
+  padding: 0 10px;
+      height: 25px;
+      border: 1px solid  black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      user-select: none;
+      background-color: black;
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+
+}
+
 
 
 }

@@ -6,44 +6,10 @@ import minus from '../../../assests/minus.svg'
 import plus from "../../../assests/plus.svg"
 import { withRouter } from '../../../utils/withRouter'
 import {connect} from "react-redux"
-import { gql } from 'apollo-boost'
 import "../cartovelay/cartoverlay.scss"
 import cancel from "../../../assests/x.png"
+import { CART } from '../../../queries/queries'
 
-
-export const CART = gql`
-  query GetCartData {
-    category {
-      products {
-        id
-        name
-        prices {
-          currency {
-            label
-            symbol
-          }
-          amount
-        }
-        attributes {
-          id
-          name
-          type
-          items {
-            id
-            displayValue
-            value
-          }
-        }
-        gallery
-        brand
-      }
-    }
-    currencies {
-      symbol
-      label
-    }
-  }
-`;
 
 
 class CartOverlay extends Component {
@@ -101,9 +67,7 @@ class CartOverlay extends Component {
         backgroundColor: `${itemAttributeSelection.value}`,
     }}
     />
-    <p className="swatch-text">
-    {itemAttributeSelection.displayValue}
-    </p>
+   
 </div>
 
 </div>
@@ -166,7 +130,7 @@ return null;
          alt="plus"
      />
      </button>
-     <p>
+     <p className='overlayquantity'>
      {cartItem.quantity}
      </p>
      <button

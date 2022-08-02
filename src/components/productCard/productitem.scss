@@ -7,6 +7,7 @@
 
 .Productcard:hover{
     transform: scale(1.05);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
 }
 .image{
     max-width: 300px;
@@ -23,13 +24,12 @@ color:  grey;
 
 .msg{
 position: absolute;
-
-line-height: 15;
-margin-left: 5rem;
+line-height: 12;
+margin-left: 3rem;
 font-weight: bolder;
-font-size: 25px;
+font-size: 27px;
 color: darkgrey;
-font-style: oblique;
+font-family: "Raleway";
 }
 
 .cart-icon{
@@ -56,10 +56,24 @@ justify-content: center;
 padding-top: 0.2rem;
 padding-bottom: 0.2rem;
 }
+.outstock-icon
+    {
+        margin-right: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.itemdetails{
+    margin-left: 1rem;
+    font-family: "Raleway";
+}
 
-
-
-
+.itemprice{
+    margin-left: 1rem;
+    font-family: "Raleway";
+}
 
 
 
@@ -91,7 +105,9 @@ padding-bottom: 0.2rem;
         font-style: oblique;
         }
 
-
+.cart-icon{
+    left: 70%;
+}
 }
 
 

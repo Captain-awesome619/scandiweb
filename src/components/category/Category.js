@@ -1,47 +1,9 @@
-import React, { Component } from 'react'
-import { gql } from 'apollo-boost'
+import React from 'react'
 import {graphql} from 'react-apollo'
 import { connect } from 'react-redux'
 import ProductItem from '../productCard/productItem'
 import "../category/category.scss"
-
-
-
-const ALLPRODUCTS = gql`
-  query GetProducts($type: String!) {
-    category(input: { title: $type }) {
-      name
-      products {
-        id
-        name
-        inStock
-        gallery
-        description
-        category
-        attributes {
-          id
-          name
-          type
-          items {
-            displayValue
-            value
-            id
-          }
-        }
-        prices {
-          currency {
-            label
-            symbol
-          }
-          amount
-        }
-        brand
-      }
-    }
-  }
-`;
-
-
+import { ALLPRODUCTS } from '../../queries/queries'
 
 
  class Category extends React.Component {

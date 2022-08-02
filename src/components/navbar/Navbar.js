@@ -7,35 +7,23 @@ import icon from '../../assests/logo.svg'
 import down from '../../assests/arrow-down.svg'
 import up from '../../assests/arrow-up.svg'
 import Navbuttons from '../navbuttons/Navbuttons';
-import { gql } from 'apollo-boost';
 import "../navbar/navbar.scss"
 import CartOverlay from '../cart/cartovelay/CartOverlay';
 import CurrencyChanger from '../currencyChanger/CurrencyChanger';
 import cart from "../../assests/cart.svg"
 import { GiHamburgerMenu } from "react-icons/gi";
+import { NAVDATA } from '../../queries/queries';
 
-const NAVDATA = gql`
-  query GetHeaderData {
-    categories {
-      name
-    }
-    currencies {
-      symbol
-      label
-    }
-  }
-`;
 
 class Navbar extends Component {
     constructor(props) {
-      super(props);{
+      super(props)
         this.toggleDisplay = this.toggleDisplay.bind(this)
       this.state = {
         catselected: this.props.category.activeCategory,
         currencyOption: false,
         cartoverlay: false,
         display : false
-      };
     }
     }
 

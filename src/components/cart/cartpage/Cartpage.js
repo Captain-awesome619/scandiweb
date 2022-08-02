@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { CART } from '../cartovelay/CartOverlay';
+import { CART } from '../../../queries/queries';
 import CartItem from '../cartitem/CartItem';
 import empty from "../../../assests/empty-cart.svg"
 import {graphql} from "react-apollo"
 import {connect} from "react-redux"
 import "../cartpage/cartpage.scss"
 import * as clearcart from "../../../store/actions/Cart"
+
  class Cartpage extends Component {
 
   constructor(){
     super();
-    this.state ={
+    this.state = {
       image : 0
     }
   }
@@ -81,22 +82,31 @@ alt="empty cart"
   <div className='page-items'>{this.CartItems()}</div>
 </div>
 <div className='cartcheckout'>
-  <div className='checkoutamounts'>
-  <p className='tax'>Tax: {this.props.data.currencies[this.props.activeCurrency].symbol}
-{tax.toFixed(2)}</p>
+  <div className='bordercart'>
+  <p className='tax'>Tax: <strong>{this.props.data.currencies[this.props.activeCurrency].symbol}
+{tax.toFixed(2)} </strong>  </p>
 
-    <p className='total'>Total :
-{this.props.data.currencies[this.props.activeCurrency].symbol}
-  {totalprice}</p>
+<p className="pagequantity">
+  Quantity:
+  <strong> {this.props.cartItems.length}{" "}
+  {this.props.cartItems.length === 1 ? "item" : "items"}
+  </strong></p>
+
+    <p className='total2'> Total :
+<strong>{this.props.data.currencies[this.props.activeCurrency].symbol}
+  {totalprice} </strong> </p>
+
 </div>
+<div>
   <button
-          className="checkout"
+          className="checkout2"
           onClick={() => {
             this.handleCheckOut();
           }}
         >
           CHECK OUT
         </button>
+        </div>
 </div>
   </>
 )}

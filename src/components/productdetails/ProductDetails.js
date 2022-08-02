@@ -1,43 +1,12 @@
 import React, { Component } from 'react'
 import Features from './features/Features'
-import {gql} from "apollo-boost"
 import {graphql} from "react-apollo"
 import {withRouter} from "../../utils/withRouter"
 import {connect} from "react-redux"
 import parse from "html-react-parser"
 import "../productdetails/productdetails.scss"
 import * as AddToCart from '../../store/actions/Cart'
-
-const Product = gql`
-  query GetProduct($id: String!) {
-    product(id: $id) {
-      id
-      name
-      inStock
-      gallery
-      description
-      category
-      attributes {
-        id
-        name
-        type
-        items {
-          displayValue
-          value
-          id
-        }
-      }
-      prices {
-        currency {
-          label
-          symbol
-        }
-        amount
-      }
-      brand
-    }
-  }
-`;
+import { Product } from '../../queries/queries'
 
 
 
@@ -85,14 +54,10 @@ return null;
         quantity: content,
       })
     );
-    alert( `${data.product.name} added to the cart` )
+  return alert( `${data.product.name} added to the cart` )
   }
-
 }
-
   }
-
-
 }
 
 

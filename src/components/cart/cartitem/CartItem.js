@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as CartActions from "../../../store/actions/Cart"
-import left from "../../../assests/arrow-left.svg"
-import right from "../../../assests/arrow-right.svg"
 import minus from "../../../assests/minus.svg"
 import plus from "../../../assests/plus.svg"
 import "../cartitem/cartitem.scss"
@@ -13,7 +11,7 @@ class CartItem extends Component {
 
 constructor(){
     super();
-    this.state ={
+    this.state = {
         image: 0
     }
 }
@@ -21,10 +19,10 @@ constructor(){
 Attributes() {
     return this.props.cartItem.attributes.map((cartItemAttribute, index) => (
       <div className="item-attributes" key={index}>
-
         <p className='cartfeatname'>
           {cartItemAttribute.id}:
         </p>
+<div className='cartchoice'>
         {this.props.item.attributes.map((itemAttribute) => {
           if (cartItemAttribute.id === itemAttribute.id) {
             return itemAttribute.items.map((itemAttributeSelection, key) => {
@@ -73,9 +71,7 @@ Attributes() {
                           }}
                           key={key}
                         />
-                        <p>
-                          {itemAttributeSelection.displayValue}
-                        </p>
+
                       </div>
                     </div>
                   </div>
@@ -86,6 +82,7 @@ Attributes() {
           }
           return null;
         })}
+</div>
       </div>
     ));
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import currency from '../../store/reducers/Currency';
 import { withRouter } from '../../utils/withRouter';
 import '../productCard/productitem.scss'
 import Carticon from '../../assests/white-cart.svg'
@@ -50,7 +49,7 @@ else{
     })
   )
 }
-alert("ITEM SUCESSFULLY ADDED TO CART!")
+alert( `${this.props.data.name} added to the cart` )
 e.stopPropagation();
 }
 
@@ -73,6 +72,7 @@ onMouseLeave={()=>{this.setState({addToCart: false})}}>
   <img
 className='image'
 src={this.props.data.gallery[0]}
+alt="img"
   />
 
 {this.state.addToCart ? (
@@ -108,12 +108,12 @@ src={this.props.data.gallery[0]}
 
 
 
-  <div>
+  <div className='itemdetails'>
    <p> {this.props.data.name}</p>
    <p> {this.props.data.brand}</p>
   </div>
 
-    <div>
+    <div className='itemprice'>
 
     {this.props.data.prices[this.props.currency].currency.symbol}{" "}
             {this.props.data.prices[this.props.currency].amount}

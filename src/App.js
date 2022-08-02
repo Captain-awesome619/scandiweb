@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import './App.css';
+import "./styling/app.scss"
 
 import Navbar from '../src/components/navbar/Navbar';
 import { Provider } from 'react-redux';

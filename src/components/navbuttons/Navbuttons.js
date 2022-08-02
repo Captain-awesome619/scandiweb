@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../navbuttons/navbuttons.scss"
-import { GiHamburgerMenu } from "react-icons/gi";
+
 
 class Navbuttons extends Component {
 
@@ -26,13 +26,13 @@ display : false
             this.props.onClick();
           }}
         >
-         <a className='nav'> {this.props.name} </a>
-        </div>
+         <p className='nav'> {this.props.name} </p>
 
-        {this.props.active === true ? (
+         {this.props.active === true ? (
           <div className="border" />
         ) : null}
 
+        </div>
 
 
       </div>

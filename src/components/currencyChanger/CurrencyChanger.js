@@ -1,19 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "../currencyChanger/currencychanger.scss"
 import{graphql} from "react-apollo"
 import * as CurrencyActions from "../../store/actions/Currency"
 import { connect } from 'react-redux'
-import { gql } from 'apollo-boost'
 import '../currencyChanger/currencychanger.scss'
-
-const Currencies = gql`
-  query GetCurrencies {
-    currencies {
-      symbol
-      label
-    }
-  }
-`;
+import { Currencies } from '../../queries/queries'
 
 
 
