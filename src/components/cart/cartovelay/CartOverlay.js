@@ -13,6 +13,21 @@ import { CART } from '../../../queries/queries'
 
 
 class CartOverlay extends Component {
+ constructor(props){
+  super(props)
+  this.state ={
+    count : 0
+  }
+ }
+
+
+ getfullnumber() {
+  let num = 0;
+  this.props.cartItems.map((cartItem) =>
+   num =  cartItem.quantity + num
+  );
+  return (num);
+}
 
   showAttributes(cartItem, item) {
     return cartItem.attributes.map((cartItemAttribute, index) => (
@@ -24,6 +39,7 @@ class CartOverlay extends Component {
     <p className="features1-name">
     {cartItemAttribute.id}:
     </p>
+    <div className='overlay-options'>
     {item.attributes.map((itemAttribute) =>
     cartItemAttribute.id === itemAttribute.id
     ? itemAttribute.items.map((itemAttributeSelection, key) => {
@@ -37,7 +53,7 @@ class CartOverlay extends Component {
 
         className={
         cartItemAttribute.selected === key
-            ? "selected-option"
+            ? "selected-option1"
             : "unselected-option"
         }
     >
@@ -67,7 +83,7 @@ class CartOverlay extends Component {
         backgroundColor: `${itemAttributeSelection.value}`,
     }}
     />
-   
+
 </div>
 
 </div>
@@ -77,7 +93,7 @@ return null;
             })
         : null
     )}
-
+</div>
     </div>
 ));
 }
@@ -92,16 +108,17 @@ return null;
  if (item.id === cartItem.productId && cartItem.quantity !== 0) {
  return (
  <div key={key} className="top">
+
  <div className='border-top'>
      <div className="title-details">
      <p className="features1-brand">
          {item.brand}
      </p>
-     <p className="features1-name">
+     <p className="features1-namee">
          {item.name}
      </p>
     <div className='currency-border'>
-     <p>
+     <p className='label'>
          {item.prices[this.props.activeCurrency].currency.symbol}
          {item.prices[this.props.activeCurrency].amount}
      </p>
@@ -155,7 +172,7 @@ return null;
      />
      </button>
  </div>
- <div>
+ <div className='overimage-area'>
      <img
      src={item.gallery[0]}
      className="overlay-image"
@@ -163,13 +180,15 @@ return null;
                        />
                      </div>
                      </div>
-                   </div>
+                     </div>
+
                  );
                }
              }
              return null;
            });
          });
+
        }
 
        getFullPrice(data) {
@@ -212,11 +231,11 @@ return null;
                >
                  <div className="Minicart-Header">
 
-                   <p className="overlay-title">My Bag</p>
-                   <p className="count">
-                      {this.props.cartItems.length}{" "}
+                   <p className="overlay-title">My Bag,</p>
+                   <div className="count">
+                    {this.getfullnumber()} {""}
                      {this.props.cartItems.length === 1 ? "item" : "items"}
-                   </p>
+                   </div>
                  </div>
 
                  <img
@@ -225,8 +244,6 @@ alt="clear"
 className='cancel'
 onClick={this.props.onOutClick}
                   />
-
-
 
                  {this.props.cartItems.length === 0 ? (
                    <div className="empty-cart">
@@ -248,9 +265,9 @@ onClick={this.props.onOutClick}
                        {this.showProducts(data)}
                      </div>
                      <div className='cashier'>
-                     <div className="total">
-                       <p>Total</p>
-                       <p>
+                     <div className='subtotal'>
+                       <p className='total'>Total</p>
+                       <p className='fullprice'>
                          {
                            this.props.data.currencies[this.props.activeCurrency]
                              .symbol
@@ -266,7 +283,7 @@ onClick={this.props.onOutClick}
                            this.props.onOutClick();
                          }}
                        >
-                         VIEW BAG
+                        <p className='viewtext'> VIEW BAG</p>
                        </button>
                        <button
                          className="checkout"
@@ -274,7 +291,7 @@ onClick={this.props.onOutClick}
                            this.handleCheckOut();
                          }}
                        >
-                         CHECK OUT
+                         <p className='checktext'>CHECK OUT</p>
                        </button>
                      </div>
                      </div>
@@ -291,7 +308,7 @@ onClick={this.props.onOutClick}
 
      export default connect((state) => ({
        cartItems: state.cart.cartItems,
-       activeCurrency: state.currency.activeCurrency,
+       activeCurrency: state.currency.activeCurrency
      }))(
        graphql(CART, {
          options: () => {

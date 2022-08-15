@@ -8,8 +8,23 @@
 }
 .cart{
     margin-top: 5rem;
-
+    display: grid;
+    align-items: center;
 }
+
+.carttitle{
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+margin-left: 10rem;
+color: var(--black);
+}
+
 .emptycart{
     width: 100%;
     display: flex;
@@ -27,36 +42,83 @@
 }
 
 .cartcheckout{
-
     display: grid;
     align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 10%;
+    justify-content: flex-start;
     padding-top: 4rem;
+margin-left: 9rem;
 }
 
 .bordercart{
-    width: 500px;
-    border-top: 2px solid #e5e5e5;
-    font-family: "Raleway";
+    border-top: 1px solid #E5E5E5;
 }
 
-.checkout2{
-    padding: 0.5rem 1.5rem;
-    border: 0px;
+.checkout3{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+padding: 16px 32px;
+width: 279px;
+height: 43px;
     background-color: var(--main);
-    color: white;
     transition: 0.5s ease;
     cursor: pointer;
+    border: transparent;
     }
-    .checkout2:hover{
-        background-color: transparent;
-        color: var(--black);
-        border: 1px solid var(--black);
+    .checkout3:hover{
+        transform: scale(1.1);
     }
 
+.tax{
+    display: flex;
+    gap: 1rem;
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 0px;
+color: var(--black);
+}
 
+.pagequantity{
+    display: flex;
+    gap: 1rem;
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 0px;
+color: var(--black);
+}
+.total2{
+    display: flex;
+    gap: 1rem;
+    color: var(--black);
+}
+
+.pageprice{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 0px;
+}
+.pagetotal{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 0px;
+}
+
+.order2{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
 
 
 
@@ -66,8 +128,7 @@
         display: grid;
         align-items: center;
         justify-content: center;
-        left: 40%;
-        bottom: 0%;
+
     }
     .cart{
         overflow-x: hidden;

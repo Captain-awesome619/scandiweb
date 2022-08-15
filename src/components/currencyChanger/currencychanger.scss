@@ -1,3 +1,23 @@
 .overlay{
     display: grid;
 }
+.currenactive{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 160%;
+color: var(--black);
+}
+.curren{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 160%;
+color: var(--black);
+}
+.pairs{
+    display: flex;
+    gap: 0.5rem;
+}

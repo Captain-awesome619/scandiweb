@@ -20,6 +20,14 @@ import * as clearcart from "../../../store/actions/Cart"
     return this.props.dispatch(clearcart.CLEAR_CART());
   }
 
+  getfullnumber() {
+    let num = 0;
+    this.props.cartItems.map((cartItem) =>
+     num =  cartItem.quantity + num
+    );
+    return (num);
+  }
+
 
   getFullPrice(data) {
     let price = 0;
@@ -67,6 +75,7 @@ return null;
     const totalprice = this.getFullPrice(data)
     const tax = totalprice * 0.21
     return ( <div className='cart'>
+      <p className=' carttitle'>CART</p>
 {this.props.cartItems.length === 0 ? (
   <div className='emptycart'>
 <img
@@ -83,28 +92,28 @@ alt="empty cart"
 </div>
 <div className='cartcheckout'>
   <div className='bordercart'>
-  <p className='tax'>Tax: <strong>{this.props.data.currencies[this.props.activeCurrency].symbol}
-{tax.toFixed(2)} </strong>  </p>
+  <div className='tax'> <p>Tax:</p> <strong><p>{this.props.data.currencies[this.props.activeCurrency].symbol}
+{tax.toFixed(2)}  </p></strong>  </div>
 
-<p className="pagequantity">
-  Quantity:
-  <strong> {this.props.cartItems.length}{" "}
-  {this.props.cartItems.length === 1 ? "item" : "items"}
-  </strong></p>
+<div className="pagequantity">
+  <p>Quantity:</p>
+ <strong><p> {this.getfullnumber()}{" "}
+  {this.props.cartItems.length === 1 ? "item" : "items"} </p> </strong>
+  </div>
 
-    <p className='total2'> Total :
-<strong>{this.props.data.currencies[this.props.activeCurrency].symbol}
-  {totalprice} </strong> </p>
+    <div className='total2'> <p className='pagetotal'>Total : </p>
+<p className='pageprice'>{this.props.data.currencies[this.props.activeCurrency].symbol}
+  {totalprice} </p> </div>
 
 </div>
 <div>
   <button
-          className="checkout2"
+          className="checkout3"
           onClick={() => {
             this.handleCheckOut();
           }}
         >
-          CHECK OUT
+          <p className="order2">ORDER</p>
         </button>
         </div>
 </div>

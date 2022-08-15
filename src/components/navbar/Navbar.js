@@ -27,6 +27,13 @@ class Navbar extends Component {
     }
     }
 
+    getfullnumber() {
+      let num = 0;
+      this.props.cartItems.map((cartItem) =>
+       num =  cartItem.quantity + num
+      );
+      return (num);
+    }
 
 
     changecat(key, name) {
@@ -142,7 +149,7 @@ className='logo-icon'
             <div>
 <div className='overlay'>
           { this.props.cartItems.length > 0 ? (
-    <p className='figure'>{this.props.cartItems.length}</p>
+    <p className='figure'>{this.getfullnumber()}</p>
         ) : null }
 <img
 src={cart}

@@ -24,10 +24,10 @@ z-index: 1;
 .figure{
     position: absolute;
     line-height: 0;
-    background-color: black;
+    background-color: var(--black);
     border-radius: 100%;
     padding: 0.5rem;
-    color: white;
+    color: var(--white);
 }
 
 .cart1{

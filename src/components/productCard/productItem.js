@@ -65,9 +65,9 @@ onMouseEnter={()=>{
   this.setState({addToCart:true})
 }}
 onMouseLeave={()=>{this.setState({addToCart: false})}}>
-<div className={`instock ${this.props.data.inStock === false ? "outstock" : ""}`} >
-
-<div>{this.props.data.inStock === false ?
+<div className={`${this.props.data.inStock === false ? "outstock2" : "instock2"}`} >
+<div>
+<div className='msg1'>{this.props.data.inStock === false ?
     <p className='msg'>OUT OF STOCK  </p>  : null }</div>
   <img
 className='image'
@@ -118,6 +118,7 @@ alt="img"
     {this.props.data.prices[this.props.currency].currency.symbol}{" "}
             {this.props.data.prices[this.props.currency].amount}
 
+    </div>
     </div>
     </div>
 </div>

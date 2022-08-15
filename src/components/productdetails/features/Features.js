@@ -43,7 +43,7 @@ onClick={() =>{
     this.optionchanger(key, "text");
 }}
 key={key}>
-<p className='text-option'>
+<p className='text-opt'>
     {item.value}
 </p>
         </button>

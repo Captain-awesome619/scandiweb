@@ -20,7 +20,7 @@ Attributes() {
     return this.props.cartItem.attributes.map((cartItemAttribute, index) => (
       <div className="item-attributes" key={index}>
         <p className='cartfeatname'>
-          {cartItemAttribute.id}:
+          {cartItemAttribute.id.toUpperCase()}:
         </p>
 <div className='cartchoice'>
         {this.props.item.attributes.map((itemAttribute) => {
@@ -41,8 +41,8 @@ Attributes() {
                         }
                         key={key}
                       >
-                        <p >
-                          {itemAttributeSelection.value}
+                        <p className='carttextvalue' >
+                          {itemAttributeSelection.value.toUpperCase()}
                         </p>
                       </button>
                     </div>

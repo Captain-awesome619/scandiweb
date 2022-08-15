@@ -16,6 +16,7 @@ class CurrencyChanger extends React.Component {
     showcurrency(data) {
       return data.currencies.map((currency, key) => {
         return (
+
           <button
             key={key}
             className={
@@ -28,7 +29,10 @@ class CurrencyChanger extends React.Component {
               this.props.onOutClick();
             }}
           >
-            {currency.symbol} {currency.label}
+           <div className='pairs'>
+            <p>{currency.symbol}</p>
+          <p> {currency.label}</p>
+           </div>
           </button>
         );
       });

@@ -128,12 +128,12 @@ Selections(selection){
           <div className='images'>
             {this.productImage(data)}
           </div>
-          <div>
+          <div className='imgdetailsarea'>
   {data.product.inStock === false ? <p className='detailstock'>OUT OF STOCK</p> : "" }
 </div>
           <img
 src= {data.product.gallery[this.state.viewimage]}
-className="main-img"
+className={`main-img ${data.product.inStock === false ? "stockimg2" : ""}`}
 alt='main'
             />
 
@@ -147,8 +147,8 @@ alt='main'
   {this.Attributes(data)}
 </div>
 <div className='pricing'>
-  PRICE:
-<div className='amountprice'>
+ <p className='detailprice'> PRICE:</p>
+ <div className='amountprice'>
    {data.product.prices[this.props.activeCurrency].currency.symbol}
               {data.product.prices[this.props.activeCurrency].amount}
               </div>
@@ -157,7 +157,7 @@ alt='main'
 <div>
 {data.product.inStock ? (
   <button
-   className='addtocart' onClick={() =>{
+   className='addtocart2' onClick={() =>{
     this.AddToCart(data)
    }}>ADD TO CART</button>
 ): <button className='outofstock-button'>
@@ -170,7 +170,7 @@ OUT OF STOCK
 
 
 
-<div className="descript">
+<div className="descript2">
             {parse(data.product.description)}
           </div>
 </div>
